@@ -23,18 +23,6 @@ let editFlag = false;
 //Adding text color to expense amount
 expenseAmount.css('color','red');
 
-//Initial setting of local storage of budget,expense and balance amount
-localStorage.setItem('amount', 
-                    JSON.stringify
-                    (
-                        {
-                            "budget": budgetAmount.html(),
-                            "expense": expenseAmount.html(),
-                            "balance": balanceAmount.html() 
-                        }
-                    )
-                );
-
 // *****EVENT LISTNERS*****
 budgetSubmit.click(addBudget);
 expenseSubmit.click(addExpense);
@@ -59,10 +47,6 @@ function addBudget(event){
         balanceAmount.html(eval(balance));
 
         displayAlert("alert1","Budget Entered","success");
-
-        //Add Amount to Local Storage
-        addAmountToLocalStorage('budget',eval(budget));
-        addAmountToLocalStorage('balance',eval(balance));
 
     }
     else displayAlert("alert1","Invalid Input","warning"); //Empty Value
@@ -100,13 +84,6 @@ function addExpense(event){
             displayAlert("alert2","Expense Added","danger");
             change('add',value2);
             
-            // Add to local storage
-                addToLocalStorage(key,JSON.stringify(
-                                    {
-                                        title : value1,
-                                        amount : value2
-                                    })
-                               );
         }
         else if(editFlag === true) //Edit
         {
@@ -119,13 +96,6 @@ function addExpense(event){
 
             let x = element[0].id; //key
             //console.log(x);
-            //Edit Local Storage
-            addToLocalStorage(x,JSON.stringify(
-                                {  
-                                    title : value1,
-                                    amount : value2
-                                })
-                            );
         }
         setBackToDefault();
     }
@@ -181,8 +151,6 @@ function removeExpense(event){
     const element = $(this).parent().parent();
     //console.log(element);
     let key = element[0].id;
-    //Remove from Local Storage
-    removeFromLocalStorage(key);
     
     //Add the expense and balance amount from removed espense
     const refundAmount = element[0].children[1].textContent;
@@ -224,100 +192,4 @@ function change(type,value){
     //Final changes to expense and balance amount
     expenseAmount.html(eval(expense));
     balanceAmount.html(eval(balance));
-    
-        //Add Amount to Local Storage
-        addAmountToLocalStorage('expense', eval(expense));
-        addAmountToLocalStorage('balance', eval(balance));
 }
-
-// *****LOCAL STORAGE*****
-function addAmountToLocalStorage(type,value){
-    //Only for adding and editing amount
-    /*
-        type = budget or expense or balance 
-        value = amount
-    */
-
-    let changes = JSON.parse(localStorage.getItem('amount'));
-    changes[type]=value;
-    //console.log(changes);
-    localStorage.setItem('amount',JSON.stringify(changes));
-    //text color changes to balance
-    if(eval(balance) < 0)
-        balanceAmount.css('color','red');
-    else balanceAmount.css('color','green');
-    
-}
-
-function addToLocalStorage(key,value){
-    //Only for adding and editing expense list
-    localStorage.setItem(key,value)
-}
-
-function removeFromLocalStorage(key){
-    //Only for expense list
-    localStorage.removeItem(key);
-}
-
-
-// *****SETUP ITEMS*****
-window.onload = function(){
-    setBackToDefault();
-
-    //addAmountToLocalStorage();
-
-    for(let i=0;i<localStorage.length;i++)
-    {
-        var key = localStorage.key(i);
-        
-        if(key == 'amount') //Setting up Amount
-        {
-            //Initial setting of local storage of budget,expense and balance amount
-           /* if(storageFlag)
-            {
-                localStorage.setItem('amount', 
-                    JSON.stringify
-                    (
-                        {
-                            "budget": 0,
-                            "expense": 0,
-                            "balance": 0 
-                        }
-                    )
-                );
-            } 
-            else */
-            {
-                //Setting up budget , expense and balance amount
-                budgetAmount.html(JSON.parse(localStorage.getItem('amount')).budget);
-                expenseAmount.html(JSON.parse(localStorage.getItem('amount')).expense);
-                balanceAmount.html(JSON.parse(localStorage.getItem('amount')).balance);
-    
-            }
-            
-        }
-        else //Setting up Expense List
-        {
-            expenseList.append(`
-            <div id=${key} class="row eachExpense">
-                <div class="col-5">
-                    ${JSON.parse(localStorage.getItem(key)).title}
-                </div>
-                <div class="col-4 text-center">
-                    ${JSON.parse(localStorage.getItem(key)).amount}
-                </div>
-                <div class="col-3 icon2">
-                    <i id="edit" class="fas fa-edit float-left"></i>
-                    <i id="remove" class="fas fa-trash float-right"></i>
-                </div>
-            </div>
-            `);
-
-            $('.eachExpense #edit').click(editExpense);
-            $('.eachExpense #remove').click(removeExpense);
-            
-            displayAlert("alert2","Expenses Loaded","primary"); 
-        }
-        
-    }
-}; 

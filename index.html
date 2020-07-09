@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="">
+    <!-- Offline -->
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap/css/fontawesome-free-5.13.0-web/css/all.css">
+    <!-- Online -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
+    <title>Budget App</title>
+</head>
+<body>
+    <header class="container-fluid bg-light p-3">
+        <div class="text-center">
+                <h1>Budget App</h1>    
+        </div>
+    </header>
+        
+    <section>
+        <div class="container budget">
+            <div class="row mx-2">
+                <div class="col-md-4 offset-md-4 text-center">
+                    <p class="alert1"></p>
+                </div>
+                <div class="col-12">
+                    <div class="row">
+                        <div class="col-md-4 my-2 p-3 div">
+                            <input type="number" class=" budgetEnter form-control" placeholder="Enter your Budget Amount"> <br>
+                            <button type="submit" class="btn btn-success budgetSubmit">Calculate</button>
+                        </div>
+                        <div class="col-md-8 my-2">
+                            <div class="row p-1 p-md-2 text-center">
+                                <div class="col-sm-4">
+                                    <h3>Budget</h3>
+                                    <span><i class="fas fa-money-bill icon1"></i></span>
+                                    <h4 class="budget" id="budget" ><span>₹</span><span id="budgetAmount"></span></h4>
+                                </div> 
+                                <div class="col-sm-4">
+                                    <h3>Expenses</h3>
+                                    <span><i class="far fa-credit-card icon1"></i></span>
+                                    <h4 class="expense" id="expense" ><span>₹</span><span id="expenseAmount"></span></h4>
+                                </div> 
+                                <div class="col-sm-4">
+                                    <h3>Balance</h3>
+                                    <span><i class="fas fa-rupee-sign icon1"></i></span>
+                                    <h4 class="balance" id="balance" ><span>₹</span><span id="balanceAmount"></span></h4>
+                                </div> 
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+            </div><hr>
+        </div> 
+    </section>
+                
+    <section>
+        <div class="container">
+            <div class="row mx-2">
+                <div class="col-md-4 offset-md-4 text-center">
+                    <p class="alert2"></p>
+                </div>
+                <div class="col-12">
+                    <div class="row">
+                        <div class="col-md-4 my-3 p-3">
+                            <input type="text" class="expenseTitleEnter form-control" placeholder="Enter your Expense Title"> <br>
+                            <input type="number" class="expenseAmountEnter form-control" placeholder="Enter your Expense Amount"> <br>
+                            <button type="submit" class="btn btn-primary expenseSubmit">Add Expense</button>
+                        </div>
+        
+                        <div class="col-md-7 my-3 offset-md-1 expenseList">
+                            <div class="row expenseHeading text-center">
+                                <div class="col-5">Expense Title</div>
+                                <div class="col-4">Expense Value</div>
+                                <div class="col-3">Edit</div>
+                            </div>
+                            <hr>
+                            <div class="row eachExpense"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+                
+    <!-- Offline -->
+    <script src="bootstrap/js/jQuery.js"></script>
+    <script src="bootstrap/js/jqueryui/jquery-ui.js"></script>
+    <!-- Online -->
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js" integrity="sha256-0YPKAwZP7Mp3ALMRVB2i8GXeEndvCq3eSl/WsAl1Ryk=" crossorigin="anonymous"></script>
+
+    <script src="main.js"></script>
+        
+</body>
+</html>

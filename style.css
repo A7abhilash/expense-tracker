@@ -1,0 +1,32 @@
+.icon1{
+    font-size: 30px;
+    color: black;
+}
+.expenseHeading{
+    font-size: 18px;
+    font-weight: 600;
+}
+.fa-edit{
+    color: rgb(103, 230, 45);
+    cursor: pointer;
+}
+.fa-trash {
+    color: rgb(230, 82, 45);
+    cursor: pointer;
+}
+.fa-edit:active , .fa-trash:active {
+    color: cornsilk;
+}
+.alert1 , .alert2{
+    height: 50px;
+    padding: 10px;
+    font-size: 20px;
+}
+.expenseList{
+    height: auto;
+    line-height: 20px;
+}
+.eachExpense{
+    align-items: center;
+    margin: 10px;
+}

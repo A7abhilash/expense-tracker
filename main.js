@@ -1,3 +1,4 @@
+alert('Please note that this is a lite version of this application and your data will not be stored once the window is refreshed. The updated version with data storage will roll out soon!!!')
 // *****SET VARIABLES*****
 const budgetEnter = $('.budgetEnter');
 const budgetSubmit = $('.budgetSubmit');
@@ -47,7 +48,16 @@ function addBudget(event){
         balanceAmount.html(eval(balance));
 
         displayAlert("alert1","Budget Entered","success");
-
+        
+        //Change the color of balance amount
+        if(eval(balance)<0)
+        {
+            balanceAmount.css('color','red');
+        }
+        else
+        {
+            balanceAmount.css('color','green');
+        }
     }
     else displayAlert("alert1","Invalid Input","warning"); //Empty Value
 
@@ -192,4 +202,14 @@ function change(type,value){
     //Final changes to expense and balance amount
     expenseAmount.html(eval(expense));
     balanceAmount.html(eval(balance));
+    
+    //Change the color of balance amount
+    if(eval(balance)<0)
+    {
+        balanceAmount.css('color','red');
+    }
+    else
+    {
+        balanceAmount.css('color','green');
+    }
 }

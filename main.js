@@ -1,3 +1,7 @@
+//*******Updating Users*******
+alert(
+  "Welcome back my lovely friends. Yippe, now your data will be saved and can be retrieved every time you visit the page."
+);
 
 // *****SET VARIABLES*****
 const budgetEnter = $(".budgetEnter");
@@ -241,10 +245,8 @@ function removeFromLocalStorage(key) {
 // *****SETUP ITEMS*****
 window.onload = function () {
   setBackToDefault();
-alert(
-  "Welcome back my lovely friends. Yippe, now your data will be saved and can be retrieved every time you visit the page."
-);
-  if (localStorage.length === 1) {
+
+  if (localStorage.length === 0) {
     // console.log("empty Storage");
 
     //Initial setting of local storage of budget,expense and balance amount

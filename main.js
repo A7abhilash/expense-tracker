@@ -1,6 +1,8 @@
+//*********UPDATE ALERT********/
 window.alert(
   "Welcome back my lovely friends. Yippe, now your data will be saved and can be retrieved every time you visit the page."
 );
+
 // *****SET VARIABLES*****
 const budgetEnter = $(".budgetEnter");
 const budgetSubmit = $(".budgetSubmit");
@@ -244,7 +246,7 @@ function removeFromLocalStorage(key) {
 window.onload = function () {
   setBackToDefault();
 
-  if (localStorage.length === 1) {
+  if (localStorage.length === 0) {
     // console.log("empty Storage");
 
     //Initial setting of local storage of budget,expense and balance amount
@@ -298,7 +300,7 @@ window.onload = function () {
       $(".eachExpense #edit").click(editExpense);
       $(".eachExpense #remove").click(removeExpense);
     }
-    
+
     //text color changes to balance
     if (balanceAmount.html() < 0) {
       balanceAmount.css("color", "red");

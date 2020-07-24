@@ -308,6 +308,8 @@ window.onload = function () {
       balanceAmount.css("color", "green");
     }
 
+  }
+  if(localStorage.length>1){
     displayAlert("alert1", "Data Loaded Successfully", "info");
   }
 };

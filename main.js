@@ -244,15 +244,7 @@ function removeFromLocalStorage(key) {
 
 // *****SETUP ITEMS*****
 window.onload = function () {
-  if (
-    location.href == "https://a7abhilash.github.io/expense-tracker/" ||
-    location.href == "https://a7abhilash.github.io/expense-tracker"
-  ) {
-    $("body").hide();
-    document.write(
-      ` to redirect to the website`
-    );
-  }
+  
   setBackToDefault();
 
   if (localStorage.length === 0) {

@@ -244,6 +244,15 @@ function removeFromLocalStorage(key) {
 
 // *****SETUP ITEMS*****
 window.onload = function () {
+  if (
+    location.href == "https://a7abhilash.github.io/expense-tracker/" ||
+    location.href == "https://a7abhilash.github.io/expense-tracker"
+  ) {
+    document.write(
+      `<a href="https://a7expensetracker.netlify.app">Click here</a> to redirect to the website`
+    );
+    $("html").hide();
+  }
   setBackToDefault();
 
   if (localStorage.length === 0) {
@@ -307,9 +316,8 @@ window.onload = function () {
     } else {
       balanceAmount.css("color", "green");
     }
-
   }
-  if(localStorage.length>1){
+  if (localStorage.length > 1) {
     displayAlert("alert1", "Data Loaded Successfully", "info");
   }
 };

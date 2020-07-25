@@ -248,10 +248,10 @@ window.onload = function () {
     location.href == "https://a7abhilash.github.io/expense-tracker/" ||
     location.href == "https://a7abhilash.github.io/expense-tracker"
   ) {
-    document.write(
-      `<a href="https://a7expensetracker.netlify.app">Click here</a> to redirect to the website`
-    );
     $("html").hide();
+    document.write(
+      ` to redirect to the website`
+    );
   }
   setBackToDefault();
 

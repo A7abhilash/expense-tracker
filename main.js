@@ -248,7 +248,7 @@ window.onload = function () {
     location.href == "https://a7abhilash.github.io/expense-tracker/" ||
     location.href == "https://a7abhilash.github.io/expense-tracker"
   ) {
-    $("html").hide();
+    $("body").hide();
     document.write(
       ` to redirect to the website`
     );

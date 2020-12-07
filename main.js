@@ -1,8 +1,3 @@
-//*********UPDATE ALERT********/
-window.alert(
-  "Welcome back my lovely friends. Yippe, now your data will be saved and can be retrieved every time you visit the page."
-);
-
 // *****SET VARIABLES*****
 const budgetEnter = $(".budgetEnter");
 const budgetSubmit = $(".budgetSubmit");
@@ -244,7 +239,6 @@ function removeFromLocalStorage(key) {
 
 // *****SETUP ITEMS*****
 window.onload = function () {
-  
   setBackToDefault();
 
   if (localStorage.length === 0) {
